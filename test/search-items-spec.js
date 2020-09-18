@@ -3,9 +3,8 @@ const { searchItems } = require('../search-items');
 describe("The searchItems function", () => {
   it('Returns an empty array when it is given an empty array and a non-empty term', () => {
     // ARRANGE
-    // Declare the items and term variables, here.
-    // Items should be an empty array.
-    // Term should be a non-empty term.
+    const items = [];
+    const term = 'apple';
 
     // ACT
     const result = searchItems(items, term);
@@ -27,8 +26,7 @@ describe("The searchItems function", () => {
     const result = searchItems(items, term);
 
     // ASSERT
-    // Fix this assertion to be correct
-    expect.fail('make this assert the proper length of the result.');
+    expect(result).to.have.length(items.length)
   });
 
   it('Returns items whose title contains the term, case insensitive', () => {
@@ -38,9 +36,7 @@ describe("The searchItems function", () => {
       {title: 'THIS IS 2', category: 'Category 2'},
       {title: 'I am 1', category: 'Category 3'},
     ];
-    // Set term to a string that will return only two
-    // of the items from the above collection.
-    const term = null;
+    const term = 'is';
 
     // ACT
     const result = searchItems(items, term);

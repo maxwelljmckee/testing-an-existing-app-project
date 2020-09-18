@@ -8,30 +8,23 @@ describe("The getValueFromBody function", () => {
     const key = "notThere";
 
     // Act
-    // Write code to invoke getValueFromBody and collect
-    // the result
-
+    const actual = getValueFromBody(body, key)
+    const expected = '';
 
     // Assert
     // Replace the fail line with an assertion for the
     // expected value of ""
-    expect.fail('please write this test');
+    expect(actual).to.equal(expected)
   });
-
+  
   it('returns an empty string for a body without the key', () => {
-    // Arrange
     const body = "name=Bess&age=29&job=Boss";
     const key = "notThere";
+    
+    const actual = getValueFromBody(body, key);
+    const expected = '';
 
-    // Act
-    // Write code to invoke getValueFromBody and collect
-    // the result
-
-
-    // Assert
-    // Replace the fail line with an assertion for the
-    // expected value of ""
-    expect.fail('please write this test');
+    expect(actual).to.equal(expected)
   });
 
   it('returns the value of the key in a simple body', () => {
@@ -39,29 +32,30 @@ describe("The getValueFromBody function", () => {
     const key = "name";
 
     // Act
-    // Write code to invoke getValueFromBody and collect
-    // the result
+    const actual = getValueFromBody(body, key);
+    const expected = 'Bess';
 
 
     // Assert
-    // Replace the fail line with an assertion for the
-    // expected value of "Bess"
-    expect.fail('please write this test');
+    expect(actual).to.equal(expected)
   });
 
   it('returns the value of the key in a complex body', () => {
     const body = "name=Bess&age=29&job=Boss";
-    // Select one of the keys in the body
+    const key1 = 'name';
+    const key2 = 'age';
+    const key3 = 'job';
+    
 
     // Act
-    // Write code to invoke getValueFromBody and collect
-    // the result
-
+    const test1 = getValueFromBody(body, key1);
+    const test2 = getValueFromBody(body, key2);
+    const test3 = getValueFromBody(body, key3);
 
     // Assert
-    // Replace the fail line with an assertion for the
-    // expected value for the key that you selected
-    expect.fail('please write this test');
+    expect(test1).to.equal('Bess');
+    expect(test2).to.equal('29');
+    expect(test3).to.equal('Boss');
   });
 
   it('decodes the return value of URL encoding', () => {
@@ -69,14 +63,10 @@ describe("The getValueFromBody function", () => {
     const key = "level";
 
     // Act
-    // Write code to invoke getValueFromBody and collect
-    // the result
-
+    const actual = getValueFromBody(body, key);
+    const expected = 'Level Thirty-One';
 
     // Assert
-    // Replace the fail line with an assertion for the
-    // expected value for the key that you selected that
-    // has the encoded value in it
-    expect.fail('please write this test');
+    expect(actual).to.equal(expected)
   });
 });
